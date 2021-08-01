@@ -11,6 +11,7 @@ a {
   padding: 30px 40px;
   border: 1px solid;
   border-radius: 15px;
+  max-width: 900px;
 }
 
 .city-search {
