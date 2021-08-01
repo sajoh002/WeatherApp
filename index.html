@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>🌦</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="surround">
+        <form id="city-search">
+          <div class="input-group city-search">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Enter City"
+              aria-label="Recipient's username with two button addons"
+              id="city"
+            />
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              id="new-city-search"
+            >
+              Search
+            </button>
+            <button type="submit" class="btn btn-dark" id="current-city-search">
+              Current Location
+            </button>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-5">
+            <div class="card border-0 today-temp" style="width: 18rem">
+              <div class="image-border">
+                <img
+                  src="images/Thunderstorms.svg"
+                  alt="thunderstorm"
+                  class="thunderstorm"
+                />
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Current Temperature:</h4>
+                <p class="card-text current-temp">
+                  <span id="current-temp"></span
+                  ><a href="#" id="fahrenheit-temp">°F</a>/<a
+                    href="#"
+                    id="celsius-temp"
+                    >°C</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-7">
+            <div class="card border-0 current">
+              <h1
+                class="card-header bg-transparent border-0 current-city-heading"
+                id="city-title"
+              >
+                
+              </h1>
+              <div class="card-body">
+                <h2 class="card-title" id="date-time">Today</h2>
+                <p class="card-text current-city">
+                  <span id="high-temp"></span></span>°/<span id="low-temp"></span>° <span class="units">F</span> <div class= "current-city" id="weather-conditions"></div>
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card border-0">
+            <div class="image-border">
+              <img
+                src="images/PartlyCloudy.svg"
+                alt="party cloudy"
+                class="forcast"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Sunday</h5>
+              <p class="card-text">86°/68°</p>
+            </div>
+          </div>
+          <div class="card border-0">
+            <div class="image-border">
+              <img
+                src="images/PartlyCloudy.svg"
+                alt="party cloudy"
+                class="forcast"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Monday</h5>
+              <p class="card-text">91°/70° </p>
+            </div>
+          </div>
+          <div class="card border-0">
+            <div class="image-border">
+              <img src="images/Sunny.svg" alt="party cloudy" class="forcast" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Tuesday</h5>
+              <p class="card-text">91°/70° </p>
+            </div>
+          </div>
+          <div class="card border-0">
+            <div class="image-border">
+              <img src="images/Sunny.svg" alt="party cloudy" class="forcast" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Wednesday</h5>
+              <p class="card-text">90°/68° </p>
+            </div>
+          </div>
+          <div class="card border-0">
+            <div class="image-border">
+              <img
+                src="images/PartlyCloudy.svg"
+                alt="party cloudy"
+                class="forcast"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Thursday</h5>
+              <p class="card-text">88°/72° </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

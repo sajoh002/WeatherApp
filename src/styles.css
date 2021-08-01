@@ -1,0 +1,61 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.surround {
+  margin: 30px auto;
+  padding: 30px 40px;
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+.city-search {
+  padding: 10px 30px;
+}
+
+.today-temp {
+  margin: 0 auto;
+}
+
+.image-border {
+  margin: 0 auto;
+  border: 5px solid #5f6769;
+  border-radius: 50%;
+  height: 100%;
+}
+
+.current-temp {
+  font-size: 30px;
+}
+
+.thunderstorm {
+  width: 20vw;
+  height: auto;
+  padding: 10px;
+}
+
+.forcast {
+  width: 15vw;
+  height: auto;
+  padding: 20px;
+}
+
+.card {
+  text-align: center;
+}
+
+.current {
+  padding-top: 40px;
+}
+
+.current-city-heading {
+  font-size: 50px;
+}
+
+.current-city {
+  font-size: 30px;
+}
