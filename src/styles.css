@@ -60,21 +60,21 @@ a:hover {
   text-align: center;
 }
 
-.forcast {
+.forecast {
   text-align: center;
 }
 
-.forcast-icon {
+.forecast-icon {
   width: 10vw;
   height: auto;
   padding: 20px;
 }
 
-.forcast-temp {
+.forecast-temp {
   padding: 10px;
 }
 
-.forcast-high {
+.forecast-high {
   font-weight: 900;
 }
 
