@@ -22,10 +22,41 @@ function formatDate() {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 forecast-1">
+        <div class="forecast-day"><h5>${day}</h5></div>
+        <div>
+          <img
+            src="http://openweathermap.org/img/wn/10d@2x.png"
+            alt="party cloudy"
+            class="forecast-icon"
+          />
+        </div>
+        <div class="forecast-temp">
+          <span class="forecast-high">86°</span>/<span
+            class="forecast-low">
+            68°</span>
+        </div>
+      </div>
+      `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   fahrenheitTemp = response.data.main.temp;
   currentHigh = response.data.main.temp_max;
   currentLow = response.data.main.temp_min;
+  displayForecast();
   document.querySelector("#current-temp").innerHTML =
     Math.round(fahrenheitTemp);
   document.querySelector("#high-temp").innerHTML = Math.round(currentHigh);

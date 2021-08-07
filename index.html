@@ -49,7 +49,7 @@
         <div class="row">
           <div class="col-5">
             <div class="card border-0 today-temp" style="width: 18rem">
-              <div class="image-border">
+              <div>
                 <img
                   src=""
                   alt=""
@@ -79,7 +79,10 @@
               <div class="card-body">
                 <ul class="current-city">
                   <li>Last updated: <span id="date-time"></span></li>
-                  <li>High: <span id="high-temp"></span></span>° Low: <span id="low-temp"></span>°</li>
+                  <li>
+                    High: <span id="high-temp"></span>° Low:
+                    <span id="low-temp"></span>°
+                  </li>
                   <li id="weather-conditions"></li>
                   <li>Humidity: <span id="humidity"></span>%</li>
                   <li>Wind Speed: <span id="wind-speed"></span> mph</li>
@@ -88,23 +91,14 @@
             </div>
           </div>
         </div>
-        <div class="row forecast">
-          <div class="col-2 forecast-1">
-            <div class="forecast-day"><h5>Sunday</h5></div>
-            <div class="image-border">
-              <img
-                src="images/PartlyCloudy.svg"
-                alt="party cloudy"
-                class="forecast-icon"
-              />
-            </div>
-            <div class="forecast-temp">
-              <span class="forecast-high">86°</span>/<span class="forecast-low">68°</span>
-            </div>
-          </div>
-        </div>
+        <div class="forecast" id="forecast"></div>
       </div>
-      <p><a href="https://github.com/sajoh002/WeatherApp" target="_blank">Coded</a> by Sarah Johnson</p> 
+      <p>
+        <a href="https://github.com/sajoh002/WeatherApp" target="_blank"
+          >Coded</a
+        >
+        by Sarah Johnson
+      </p>
     </div>
     <script src="src/script.js"></script>
   </body>
