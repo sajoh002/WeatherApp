@@ -18,7 +18,7 @@ a:hover {
   margin: 30px auto;
   margin-bottom: 0;
   padding: 30px 40px;
-  border: 5px solid #5f6769;
+  border: 1px solid #5f6769;
   border-radius: 15px;
   max-width: 900px;
 }
@@ -39,7 +39,7 @@ a:hover {
   width: 15vw;
   height: auto;
   margin: 0 auto;
-  border: 5px solid #5f6769;
+  border: 1px solid #5f6769;
   border-radius: 50%;
   max-width: 100%;
 }
@@ -62,7 +62,7 @@ a:hover {
   width: 15vw;
   height: auto;
   margin: 0 auto;
-  border: 5px solid #5f6769;
+  border: 1px solid #5f6769;
   border-radius: 50%;
   max-width: 100%;
 }
