@@ -23,7 +23,6 @@ function formatDate() {
 }
 
 function displayWeather(response) {
-  console.log(response.data);
   fahrenheitTemp = response.data.main.temp;
   currentHigh = response.data.main.temp_max;
   currentLow = response.data.main.temp_min;
