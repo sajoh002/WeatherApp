@@ -39,7 +39,6 @@ function formatForecastDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
@@ -83,11 +82,9 @@ function getForecast(coordinates) {
 }
 
 function displayWeather(response) {
-  fahrenheitTemp = response.data.main.temp;
-  currentHigh = response.data.main.temp_max;
-  currentLow = response.data.main.temp_min;
-  document.querySelector("#current-temp").innerHTML =
-    Math.round(fahrenheitTemp);
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
   document.querySelector("#city-title").innerHTML = response.data.name;
   document.querySelector("#weather-conditions").innerHTML =
     response.data.weather[0].main;
@@ -122,31 +119,6 @@ function handleSearch(event) {
   Search(city);
 }
 
-function changeToCelsius(event) {
-  event.preventDefault();
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    ((fahrenheitTemp - 32) * 5) / 9
-  );
-  document.querySelector("#high-temp").innerHTML = Math.round(
-    ((currentHigh - 32) * 5) / 9
-  );
-  document.querySelector("#low-temp").innerHTML = Math.round(
-    ((currentLow - 32) * 5) / 9
-  );
-  degreesFahrenheit.classList.remove("active");
-  degreesCelsius.classList.add("active");
-}
-
-function changeToFahrenheit(event) {
-  event.preventDefault();
-  document.querySelector("#current-temp").innerHTML =
-    Math.round(fahrenheitTemp);
-  document.querySelector("#high-temp").innerHTML = Math.round(currentHigh);
-  document.querySelector("#low-temp").innerHTML = Math.round(currentLow);
-  degreesCelsius.classList.remove("active");
-  degreesFahrenheit.classList.add("active");
-}
-
 function getCurrentLocation(position) {
   let apiKey = "979b0f0f351a5c4ea430dfe10b13b53f";
   let latitude = position.coords.latitude;
@@ -163,15 +135,6 @@ function currentCity() {
 let newSearch = document.querySelector("#city-search");
 newSearch.addEventListener("submit", handleSearch);
 
-let degreesCelsius = document.querySelector("#celsius-temp");
-degreesCelsius.addEventListener("click", changeToCelsius);
-
-let degreesFahrenheit = document.querySelector("#fahrenheit-temp");
-degreesFahrenheit.addEventListener("click", changeToFahrenheit);
-
-let fahrenheitTemp = null;
-let currentHigh = null;
-let currentLow = null;
 let apiKey = "979b0f0f351a5c4ea430dfe10b13b53f";
 
 let currentCitySearch = document.querySelector("#current-city-search");

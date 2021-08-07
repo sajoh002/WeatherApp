@@ -35,16 +35,6 @@ a:hover {
   font-size: 30px;
 }
 
-.active {
-  color: #5f6769;
-  cursor: default;
-}
-
-.active:hover {
-  text-decoration: none;
-  color: #5f6769;
-}
-
 .current-icon {
   width: 15vw;
   height: auto;
@@ -52,6 +42,12 @@ a:hover {
   border: 5px solid #5f6769;
   border-radius: 50%;
   max-width: 100%;
+}
+
+.unit {
+  font-size: 16px;
+  position: relative;
+  top: -10px;
 }
 
 .card {
