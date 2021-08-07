@@ -18,7 +18,7 @@ a:hover {
   margin: 30px auto;
   margin-bottom: 0;
   padding: 30px 40px;
-  border: 1px solid;
+  border: 5px solid #5f6769;
   border-radius: 15px;
   max-width: 900px;
 }
