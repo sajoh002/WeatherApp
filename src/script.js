@@ -23,15 +23,13 @@ function formatDate() {
 }
 
 function displayWeather(response) {
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#high-temp").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
-  document.querySelector("#low-temp").innerHTML = Math.round(
-    response.data.main.temp_min
-  );
+  fahrenheitTemp = response.data.main.temp;
+  currentHigh = response.data.main.temp_max;
+  currentLow = response.data.main.temp_min;
+  document.querySelector("#current-temp").innerHTML =
+    Math.round(fahrenheitTemp);
+  document.querySelector("#high-temp").innerHTML = Math.round(currentHigh);
+  document.querySelector("#low-temp").innerHTML = Math.round(currentLow);
   document.querySelector("#city-title").innerHTML = response.data.name;
   document.querySelector("#weather-conditions").innerHTML =
     response.data.weather[0].main;
@@ -47,47 +45,43 @@ function displayWeather(response) {
     .setAttribute("alt", `${response.data.weather[0].main}`);
 }
 
-function Search(city, units) {
+function Search(city) {
   let apiKey = "979b0f0f351a5c4ea430dfe10b13b53f";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   axios.get(url).then(displayWeather);
 }
 
 function handleSearch(event) {
   event.preventDefault();
   let city = document.querySelector("#city").value;
-  let units = "imperial";
-  Search(city, units);
-}
-
-function changeTempUnits(response) {
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#high-temp").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
-  document.querySelector("#low-temp").innerHTML = Math.round(
-    response.data.main.temp_min
-  );
+  Search(city);
 }
 
 function changeToCelsius(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-title").innerHTML;
-  let units = "metric";
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    ((fahrenheitTemp - 32) * 5) / 9
+  );
+  document.querySelector("#high-temp").innerHTML = Math.round(
+    ((currentHigh - 32) * 5) / 9
+  );
+  document.querySelector("#low-temp").innerHTML = Math.round(
+    ((currentLow - 32) * 5) / 9
+  );
   document.querySelector(".units").innerHTML = "C";
-
-  Search(city, units);
+  degreesFahrenheit.classList.remove("active");
+  degreesCelsius.classList.add("active");
 }
 
 function changeToFahrenheit(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-title").innerHTML;
-  let units = "imperial";
+  document.querySelector("#current-temp").innerHTML =
+    Math.round(fahrenheitTemp);
+  document.querySelector("#high-temp").innerHTML = Math.round(currentHigh);
+  document.querySelector("#low-temp").innerHTML = Math.round(currentLow);
   document.querySelector(".units").innerHTML = "F";
-
-  Search(city, units);
+  degreesCelsius.classList.remove("active");
+  degreesFahrenheit.classList.add("active");
 }
 
 function getCurrentLocation(position) {
@@ -111,6 +105,10 @@ degreesCelsius.addEventListener("click", changeToCelsius);
 
 let degreesFahrenheit = document.querySelector("#fahrenheit-temp");
 degreesFahrenheit.addEventListener("click", changeToFahrenheit);
+
+let fahrenheitTemp = null;
+let currentHigh = null;
+let currentLow = null;
 
 let currentCitySearch = document.querySelector("#current-city-search");
 currentCitySearch.addEventListener("click", currentCity);

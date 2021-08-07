@@ -1,9 +1,14 @@
 body {
   font-family: "Roboto", sans-serif;
+  color: #5f6769;
 }
 
 a {
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .surround {
@@ -31,6 +36,16 @@ a {
 
 .current-temp {
   font-size: 30px;
+}
+
+.active {
+  color: #5f6769;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: #5f6769;
 }
 
 .current-image {
