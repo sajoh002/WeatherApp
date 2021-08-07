@@ -1,11 +1,11 @@
-function todayDayTime() {
-  let now = new Date();
+function formatDate() {
+  let date = new Date();
 
-  let hours = now.getHours();
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = now.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -18,7 +18,7 @@ function todayDayTime() {
     "Friday",
     "Saturday",
   ];
-  let day = days[now.getDay()];
+  let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -35,6 +35,7 @@ function displayWeather(response) {
   document.querySelector("#city-title").innerHTML = response.data.name;
   document.querySelector("#weather-conditions").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#date-time").innerHTML = formatDate();
 }
 
 function Search(city, units) {
@@ -92,9 +93,6 @@ function getCurrentLocation(position) {
 function currentCity() {
   navigator.geolocation.getCurrentPosition(getCurrentLocation);
 }
-
-let dateTime = document.querySelector("#date-time");
-dateTime.innerHTML = todayDayTime();
 
 let newSearch = document.querySelector("#city-search");
 newSearch.addEventListener("submit", handleSearch);
