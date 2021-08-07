@@ -35,7 +35,6 @@ a:hover {
   margin: 0 auto;
   border: 5px solid #5f6769;
   border-radius: 50%;
-  height: 100%;
 }
 
 .current-temp {
@@ -52,13 +51,31 @@ a:hover {
   color: #5f6769;
 }
 
-.current-image {
+.current-icon {
   width: 20vw;
   height: auto;
 }
 
 .card {
   text-align: center;
+}
+
+.forcast {
+  text-align: center;
+}
+
+.forcast-icon {
+  width: 10vw;
+  height: auto;
+  padding: 20px;
+}
+
+.forcast-temp {
+  padding: 10px;
+}
+
+.forcast-high {
+  font-weight: 900;
 }
 
 .current {
