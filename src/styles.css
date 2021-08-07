@@ -72,5 +72,6 @@ a:hover {
 }
 
 .current-city {
-  font-size: 30px;
+  font-size: 25px;
+  list-style-type: none;
 }

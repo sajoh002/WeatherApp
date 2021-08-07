@@ -23,6 +23,7 @@ function formatDate() {
 }
 
 function displayWeather(response) {
+  console.log(response.data);
   fahrenheitTemp = response.data.main.temp;
   currentHigh = response.data.main.temp_max;
   currentLow = response.data.main.temp_min;
@@ -33,6 +34,12 @@ function displayWeather(response) {
   document.querySelector("#city-title").innerHTML = response.data.name;
   document.querySelector("#weather-conditions").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#humidity").innerHTML = Math.round(
+    response.data.main.humidity
+  );
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
   document.querySelector("#date-time").innerHTML = formatDate();
   document
     .querySelector("#current-weather-icon")
@@ -68,7 +75,6 @@ function changeToCelsius(event) {
   document.querySelector("#low-temp").innerHTML = Math.round(
     ((currentLow - 32) * 5) / 9
   );
-  document.querySelector(".units").innerHTML = "C";
   degreesFahrenheit.classList.remove("active");
   degreesCelsius.classList.add("active");
 }
@@ -79,7 +85,6 @@ function changeToFahrenheit(event) {
     Math.round(fahrenheitTemp);
   document.querySelector("#high-temp").innerHTML = Math.round(currentHigh);
   document.querySelector("#low-temp").innerHTML = Math.round(currentLow);
-  document.querySelector(".units").innerHTML = "F";
   degreesCelsius.classList.remove("active");
   degreesFahrenheit.classList.add("active");
 }
