@@ -42,6 +42,7 @@ a:hover {
   border: 1px solid #5f6769;
   border-radius: 50%;
   max-width: 100%;
+  padding: 15px;
 }
 
 .unit {
@@ -65,6 +66,7 @@ a:hover {
   border: 1px solid #5f6769;
   border-radius: 50%;
   max-width: 100%;
+  padding: 10px;
 }
 
 .forecast-temp {

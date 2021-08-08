@@ -44,6 +44,15 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
+      let icon = null;
+      if (
+        (forecastDay.weather[0].icon === "50d") |
+        (forecastDay.weather[0].icon === "50n")
+      ) {
+        icon = `${forecastDay.weather[0].icon}.png`;
+      } else {
+        icon = `${forecastDay.weather[0].icon}.svg`;
+      }
       forecastHTML =
         forecastHTML +
         `
@@ -53,10 +62,8 @@ function displayForecast(response) {
         )}</h5></div>
         <div>
           <img
-            src="http://openweathermap.org/img/wn/${
-              forecastDay.weather[0].icon
-            }@2x.png"
-            alt="party cloudy"
+            src="images/${icon}"
+            alt="${forecastDay.weather[0].description}"
             class="forecast-icon"
           />
         </div>
@@ -95,15 +102,16 @@ function displayWeather(response) {
     response.data.wind.speed
   );
   document.querySelector("#date-time").innerHTML = formatDate();
-  document
-    .querySelector("#current-weather-icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#current-weather-icon")
-    .setAttribute("alt", `${response.data.weather[0].main}`);
+  let icon = response.data.weather[0].icon;
+  if ((icon === "50d") | (icon === "50n")) {
+    document
+      .querySelector("#current-weather-icon")
+      .setAttribute("src", `images/${icon}.png`);
+  } else {
+    document
+      .querySelector("#current-weather-icon")
+      .setAttribute("src", `images/${icon}.svg`);
+  }
 
   getForecast(response.data.coord);
 }
