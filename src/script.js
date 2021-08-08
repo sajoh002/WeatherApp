@@ -44,14 +44,11 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-      let icon = null;
-      if (
-        (forecastDay.weather[0].icon === "50d") |
-        (forecastDay.weather[0].icon === "50n")
-      ) {
-        icon = `${forecastDay.weather[0].icon}.png`;
+      let icon = forecastDay.weather[0].icon;
+      if ((icon === "50d") | (icon === "50n")) {
+        icon = icon + ".png";
       } else {
-        icon = `${forecastDay.weather[0].icon}.svg`;
+        icon = icon + ".svg";
       }
       forecastHTML =
         forecastHTML +
