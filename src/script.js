@@ -53,7 +53,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-      <div class="col-2 forecast-1">
+      <div class="col-md-2 forecast-1">
         <div class="forecast-day"><h5>${formatForecastDay(
           forecastDay.dt
         )}</h5></div>
