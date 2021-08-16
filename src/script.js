@@ -61,7 +61,9 @@ function displayForecast(response) {
           <img
             src="images/${icon}"
             alt="${forecastDay.weather[0].description}"
-            class="forecast-icon"
+            class="img-fluid border border-secondary border-3
+                    rounded-circle
+                    p-3"
           />
         </div>
         <div class="forecast-temp">
